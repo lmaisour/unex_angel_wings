@@ -47,6 +47,11 @@ gem "fog"
 # Use debugger
 # gem 'debugger', group: [:development, :test]
 
+group :production, :staging do
+	gem 'pg'
+    gem 'rails_12factor'
+end
+
 gem 'bundler'
 
 group :development, :test do
