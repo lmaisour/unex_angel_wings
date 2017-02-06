@@ -1,99 +1,124 @@
-<div class ="container-fluid">
-  <div class ="row">
-    <div class ="col-md-6 col-sm-6">
+ <div class="container">
+  <div class="row">
+    <div class="col-xs-6" id="topleft">
+      <%= form_for @wing, html: { multipart: true } do |f| %>
+      <% if @wing.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@wing.errors.count, "error") %> prohibited this pet from being saved:</h2>
 
-    
-        <%= form_for @wing, html: { multipart: true } do |f| %>
-          <% if @wing.errors.any? %>
-            <div id="error_explanation">
-              <h2><%= pluralize(@wing.errors.count, "error") %> prohibited this pet from being saved:</h2>
-         
-              <ul>
-              <% @wing.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
-            </div>
+        <ul>
+          <% @wing.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
           <% end %>
-         
-          <div class="field">
-            <%= f.label :name %><br>
-            <%= f.text_field :name %>
-          </div>
-          <div class="field">
-            <%= f.label :age %><br>
-            <%= f.number_field :age %>
-          </div>
-          <div class="field">
-            <%= f.label :quote %><br>
-            <%= f.text_field :quote %>
-          </div>
-          <div class="field">
-            <%= f.label :course %><br>
-            <%= f.text_field :course %>
-          </div>
-          <div class="field">
-            <%= f.label :image %><br>
-            <%= f.file_field :wingsphoto %>
-          </div>
-          <div class="actions">
-            <%= f.submit %>
-          </div>
-        <% end %>
+        </ul>
+      </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :name %><br>
+        <%= f.text_field :name %>
+      </div>
+      <div class="field">
+        <%= f.label :age %><br>
+        <%= f.number_field :age %>
+      </div>
+      <div class="field">
+        <%= f.label :quote %><br>
+        <%= f.text_field :quote %>
+      </div>
+      <div class="field">
+        <%= f.label :course %><br>
+        <%= f.text_field :course %>
+      </div>
+      <div class="field">
+        <%= f.label :image %><br>
+        <%= f.file_field :wingsphoto %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <% end %>
     </div>
-    <div class ="col-md-6 col-sm-6">
-        <div class="container">
-    <!-- <div class="row"> -->
-<!--      <div class="col-sm-10 col-sm-offset-1"> -->
-         <div class="col-md-4 col-sm-6">
-          <% @wings.each do |p|  %>
-             <div class="card-container">         
-                <div class="card">
-                    <div class="front">
-                        <div class="cover">
-                            <%= image_tag(p.wingsphoto, class: "img-fluid") %>
-                        </div>
-                        <div class="content">
-                            <div class="main">      
-<!--                                 <p class="profession">Name:</p> -->
-                                <h1 class="text-center"><%= p.name %></h1>
-                                <!-- <p class="profession">How UCLA Extension helped me take flight:</p><p class="text-center"><%= p.quote %></p> -->
-                            </div>
-                        </div>
-                    </div> <!-- end front panel -->
-                    <div class="back">
-                        <div class="header">
-                            
-                        </div>
-                        <div class="content">
-                            <div class="main">
-                                <p class="text-center">Enrolled in</p>
-                                <h3 class="text-center"><%= p.course %></h3>
+    <div class="col-xs-6" id="topright">
+      Artist Colette Miller launched her Global Angel Wings Project in Los Angeles in 2012. Miller says, “I created the interactive street art angel wings project to remind humanity that we are the angels of Earth.” The colorful wings first appeared in Downtown L.A.'s Arts District. Without prompting, people began posing with the wings and shared the photos on social media.
 
-                                <p class="text-center">Age</p>
-                                <h3 class="text-center"><%= p.age %></h3>
-
-                                <p class="text-center">How has UCLA Extension helped you take flight:</p>
-                                <h3 class="text-center"><%= p.quote %></h3>
-
-                            </div>
-                        </div>
-                        
-                    </div> <!-- end back panel -->
-                </div> <!-- end card -->
-            </div> <!-- end card-container -->
-              <% end %>
-        </div> <!-- end col sm 3 -->
-<!--         <div class="col-sm-1"></div> -->
-            </div> <!-- end card-container -->
-        </div> <!-- end col-sm-3 -->
-        <!-- </div> end col-sm-10 -->
-    <!-- </div> end row -->
-    <div class="space-200"></div>
-</div>
-
-     </div>
+      The angel wings have since taken flight around the world. Miller has painted them in Los Angeles, across the country, and internationally in Mexico, Kenya and Australia. She spoke about the Global Angel Wings Project at TEDx Culver City in June 2015.
+    </div>
   </div>
+<div class="col-md-12">
+  <h1 class="text-center"> Featured #UCLAExtWings </h1>
+      <!-- <div class="row"> -->
+  <!--      <div class="col-sm-10 col-sm-offset-1"> -->
+           <div class="col-md-4 col-sm-6">
+            <% @wings.each do |p|  %>
+               <div class="card-container">         
+                  <div class="card">
+                      <div class="front">
+                          <div class="cover">
+                              <%= image_tag(p.wingsphoto, class: "img-fluid") %>
+                          </div>
+                          <div class="content">
+                              <div class="main">      
+                                  <p class="profession">Name:</p> <p class="text-center"><%= p.name %></p>
+                                  <p class="profession">How UCLA Extension helped me take flight:</p><p class="text-center"><%= p.quote %></p>
+                              </div>
+                          </div>
+                      </div> <!-- end front panel -->
+                      <div class="back">
+                          <div class="header">
+                              <h5 class="motto">"To be or not to be, this is my awesome motto!"</h5>
+                          </div>
+                          <div class="content">
+                              <div class="main">
+                                  <h4 class="text-center">Enrolled in</h4>
+                                  <p class="text-center"><%= p.course %></p>
+
+                                  <h4 class="text-center">Age</h4>
+                                  <p class="text-center"><%= p.age %></p>
+
+                                  <div class="stats-container">
+                                      <div class="stats">
+                                          <h4>235</h4>
+                                          <p>
+                                              Followers
+                                          </p>
+                                      </div>
+                                      <div class="stats">
+                                          <h4>114</h4>
+                                          <p>
+                                              Following
+                                          </p>
+                                      </div>
+                                      <div class="stats">
+                                          <h4>35</h4>
+                                          <p>
+                                              Projects
+                                          </p>
+                                      </div>
+                                  </div>
+
+                              </div>
+                          </div>
+                          <div class="footer">
+                              <div class="social-links text-center">
+                                  <a href="http://deepak646.blogspot.in/" class="facebook"><i class="fa fa-facebook fa-fw"></i></a>
+                                  <a href="http://deepak646.blogspot.in/" class="google"><i class="fa fa-google-plus fa-fw"></i></a>
+                                  <a href="http://deepak646.blogspot.in/" class="twitter"><i class="fa fa-twitter fa-fw"></i></a>
+                              </div>
+                          </div>
+                      </div> <!-- end back panel -->
+                  </div> <!-- end card -->
+              </div> <!-- end card-container -->
+                <% end %>
+          </div> <!-- end col sm 3 -->
+  <!--         <div class="col-sm-1"></div> -->
+              </div> <!-- end card-container -->
+          </div> <!-- end col-sm-3 -->
+          <!-- </div> end col-sm-10 -->
+      <!-- </div> end row -->
+
+
 </div>
+
 
 

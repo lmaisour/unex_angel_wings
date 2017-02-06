@@ -10,6 +10,7 @@ class WingsController < ApplicationController
   def new
     @wing = Wing.new
     @wings = Wing.all
+    @lwing = Wing.last
   end
 
   def create
